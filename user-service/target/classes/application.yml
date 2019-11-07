@@ -1,0 +1,16 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: user-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    #失效时间，设置为lease-renewal-interval-in-seconds的3倍
+    lease-expiration-duration-in-seconds: 15
+    #心跳时间
+    lease-renewal-interval-in-seconds: 5

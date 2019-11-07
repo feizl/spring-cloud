@@ -1,0 +1,25 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  server:
+    #自我保护模式
+    enable-self-preservation: false
+    #刷新失效实例
+    eviction-interval-timer-in-ms: 5000
+    #读缓存更新时间
+    response-cache-update-interval-ms: 5000
+
+  client:
+    # server 单机环境 不向eureka注册自己
+    register-with-eureka: false
+    # server 单机环境 不拉去注册信息
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
